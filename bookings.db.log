@@ -1,0 +1,364 @@
+/*C112*/SET SCHEMA PUBLIC
+drop table hotel_booking if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table hotel_booking (id bigint not null, hotel_name varchar(255), nb_of_nights integer not null, price_per_night double not null, primary key (id))
+INSERT INTO HOTEL_BOOKING VALUES(1,'Marina',3,200.5E0)
+INSERT INTO HOTEL_BOOKING VALUES(2,'Antlantic',8,90.0E0)
+INSERT INTO HOTEL_BOOKING VALUES(3,'Grandiose',5,75.8E0)
+INSERT INTO HOTEL_BOOKING VALUES(4,'Scarlet',3,143.9E0)
+INSERT INTO HOTEL_BOOKING VALUES(5,'Diamond',6,64.4E0)
+INSERT INTO HOTEL_BOOKING VALUES(6,'OcenSide',2,147.2E0)
+INSERT INTO HOTEL_BOOKING VALUES(7,'Fantasy',2,205.8E0)
+INSERT INTO HOTEL_BOOKING VALUES(8,'Triumph',6,55.7E0)
+INSERT INTO HOTEL_BOOKING VALUES(9,'Regal',1,301.9E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 10
+COMMIT
+drop table hotel_booking if exists
+drop sequence hibernate_sequence if exists
+DISCONNECT
+/*C113*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C114*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C115*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C116*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C117*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C118*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C119*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C120*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C121*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C122*/SET SCHEMA PUBLIC
+drop table hotel_booking if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table hotel_booking (id bigint not null, hotel_name varchar(255), nb_of_nights integer not null, price_per_night double not null, primary key (id))
+INSERT INTO HOTEL_BOOKING VALUES(1,'Marina',3,200.5E0)
+INSERT INTO HOTEL_BOOKING VALUES(2,'Antlantic',8,90.0E0)
+INSERT INTO HOTEL_BOOKING VALUES(3,'Grandiose',5,75.8E0)
+INSERT INTO HOTEL_BOOKING VALUES(4,'Scarlet',3,143.9E0)
+INSERT INTO HOTEL_BOOKING VALUES(5,'Diamond',6,64.4E0)
+INSERT INTO HOTEL_BOOKING VALUES(6,'OcenSide',2,147.2E0)
+INSERT INTO HOTEL_BOOKING VALUES(7,'Fantasy',2,205.8E0)
+INSERT INTO HOTEL_BOOKING VALUES(8,'Triumph',6,55.7E0)
+INSERT INTO HOTEL_BOOKING VALUES(9,'Regal',1,301.9E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 10
+COMMIT
+drop table hotel_booking if exists
+drop sequence hibernate_sequence if exists
+DISCONNECT
+/*C123*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C124*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C125*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C126*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C127*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C128*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C129*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C130*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C131*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C132*/SET SCHEMA PUBLIC
+drop table hotel_booking if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table hotel_booking (id bigint not null, hotel_name varchar(255), nb_of_nights integer not null, price_per_night double not null, primary key (id))
+INSERT INTO HOTEL_BOOKING VALUES(1,'Marina',3,200.5E0)
+INSERT INTO HOTEL_BOOKING VALUES(2,'Antlantic',8,90.0E0)
+INSERT INTO HOTEL_BOOKING VALUES(3,'Grandiose',5,75.8E0)
+INSERT INTO HOTEL_BOOKING VALUES(4,'Scarlet',3,143.9E0)
+INSERT INTO HOTEL_BOOKING VALUES(5,'Diamond',6,64.4E0)
+INSERT INTO HOTEL_BOOKING VALUES(6,'OcenSide',2,147.2E0)
+INSERT INTO HOTEL_BOOKING VALUES(7,'Fantasy',2,205.8E0)
+INSERT INTO HOTEL_BOOKING VALUES(8,'Triumph',6,55.7E0)
+INSERT INTO HOTEL_BOOKING VALUES(9,'Regal',1,301.9E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 10
+COMMIT
+drop table hotel_booking if exists
+drop sequence hibernate_sequence if exists
+DISCONNECT
+/*C133*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C134*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C135*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C136*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C137*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C138*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C139*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C140*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C141*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C142*/SET SCHEMA PUBLIC
+drop table hotel_booking if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table hotel_booking (id bigint not null, hotel_name varchar(255), nb_of_nights integer not null, price_per_night double not null, primary key (id))
+drop table hotel_booking if exists
+drop sequence hibernate_sequence if exists
+DISCONNECT
+/*C143*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C144*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C145*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C146*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C147*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C148*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C149*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C150*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C151*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C152*/SET SCHEMA PUBLIC
+drop table hotel_booking if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table hotel_booking (id bigint not null, hotel_name varchar(255), nb_of_nights integer not null, price_per_night double not null, primary key (id))
+drop table hotel_booking if exists
+drop sequence hibernate_sequence if exists
+DISCONNECT
+/*C153*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C154*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C155*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C156*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C157*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C158*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C159*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C160*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C161*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C162*/SET SCHEMA PUBLIC
+drop table hotel_booking if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table hotel_booking (id bigint not null, hotel_name varchar(255), nb_of_nights integer not null, price_per_night double not null, primary key (id))
+INSERT INTO HOTEL_BOOKING VALUES(1,'Marina',3,200.5E0)
+INSERT INTO HOTEL_BOOKING VALUES(2,'Antlantic',8,90.0E0)
+INSERT INTO HOTEL_BOOKING VALUES(3,'Grandiose',5,75.8E0)
+INSERT INTO HOTEL_BOOKING VALUES(4,'Scarlet',3,143.9E0)
+INSERT INTO HOTEL_BOOKING VALUES(5,'Diamond',6,64.4E0)
+INSERT INTO HOTEL_BOOKING VALUES(6,'OcenSide',2,147.2E0)
+INSERT INTO HOTEL_BOOKING VALUES(7,'Fantasy',2,205.8E0)
+INSERT INTO HOTEL_BOOKING VALUES(8,'Triumph',6,55.7E0)
+INSERT INTO HOTEL_BOOKING VALUES(9,'Regal',1,301.9E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 10
+COMMIT
+drop table hotel_booking if exists
+drop sequence hibernate_sequence if exists
+DISCONNECT
+/*C163*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C164*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C165*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C166*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C167*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C168*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C169*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C170*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C171*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C172*/SET SCHEMA PUBLIC
+drop table hotel_booking if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table hotel_booking (id bigint not null, hotel_name varchar(255), nb_of_nights integer not null, price_per_night double not null, primary key (id))
+INSERT INTO HOTEL_BOOKING VALUES(1,'Marina',3,200.5E0)
+INSERT INTO HOTEL_BOOKING VALUES(2,'Antlantic',8,90.0E0)
+INSERT INTO HOTEL_BOOKING VALUES(3,'Grandiose',5,75.8E0)
+INSERT INTO HOTEL_BOOKING VALUES(4,'Scarlet',3,143.9E0)
+INSERT INTO HOTEL_BOOKING VALUES(5,'Diamond',6,64.4E0)
+INSERT INTO HOTEL_BOOKING VALUES(6,'OcenSide',2,147.2E0)
+INSERT INTO HOTEL_BOOKING VALUES(7,'Fantasy',2,205.8E0)
+INSERT INTO HOTEL_BOOKING VALUES(8,'Triumph',6,55.7E0)
+INSERT INTO HOTEL_BOOKING VALUES(9,'Regal',1,301.9E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 10
+COMMIT
+drop table hotel_booking if exists
+drop sequence hibernate_sequence if exists
+DISCONNECT
+/*C173*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C174*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C175*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C176*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C177*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C178*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C179*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C180*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C181*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C182*/SET SCHEMA PUBLIC
+drop table hotel_booking if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table hotel_booking (id bigint not null, hotel_name varchar(255), nb_of_nights integer not null, price_per_night double not null, primary key (id))
+INSERT INTO HOTEL_BOOKING VALUES(1,'Marina',3,200.5E0)
+INSERT INTO HOTEL_BOOKING VALUES(2,'Antlantic',8,90.0E0)
+INSERT INTO HOTEL_BOOKING VALUES(3,'Grandiose',5,75.8E0)
+INSERT INTO HOTEL_BOOKING VALUES(4,'Scarlet',3,143.9E0)
+INSERT INTO HOTEL_BOOKING VALUES(5,'Diamond',6,64.4E0)
+INSERT INTO HOTEL_BOOKING VALUES(6,'OcenSide',2,147.2E0)
+INSERT INTO HOTEL_BOOKING VALUES(7,'Fantasy',2,205.8E0)
+INSERT INTO HOTEL_BOOKING VALUES(8,'Triumph',6,55.7E0)
+INSERT INTO HOTEL_BOOKING VALUES(9,'Regal',1,301.9E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 10
+COMMIT
+drop table hotel_booking if exists
+drop sequence hibernate_sequence if exists
+DISCONNECT
+/*C183*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C184*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C185*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C186*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C187*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C188*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C189*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C190*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C191*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C192*/SET SCHEMA PUBLIC
+drop table hotel_booking if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table hotel_booking (id bigint not null, hotel_name varchar(255), nb_of_nights integer not null, price_per_night double not null, primary key (id))
+INSERT INTO HOTEL_BOOKING VALUES(1,'Marina',3,200.5E0)
+INSERT INTO HOTEL_BOOKING VALUES(2,'Antlantic',8,90.0E0)
+INSERT INTO HOTEL_BOOKING VALUES(3,'Grandiose',5,75.8E0)
+INSERT INTO HOTEL_BOOKING VALUES(4,'Scarlet',3,143.9E0)
+INSERT INTO HOTEL_BOOKING VALUES(5,'Diamond',6,64.4E0)
+INSERT INTO HOTEL_BOOKING VALUES(6,'OcenSide',2,147.2E0)
+INSERT INTO HOTEL_BOOKING VALUES(7,'Fantasy',2,205.8E0)
+INSERT INTO HOTEL_BOOKING VALUES(8,'Triumph',6,55.7E0)
+INSERT INTO HOTEL_BOOKING VALUES(9,'Regal',1,301.9E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 10
+COMMIT
+drop table hotel_booking if exists
+drop sequence hibernate_sequence if exists
+DISCONNECT
+/*C193*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C194*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C195*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C196*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C197*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C198*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C199*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C200*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C201*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C202*/SET SCHEMA PUBLIC
+drop table hotel_booking if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table hotel_booking (id bigint not null, hotel_name varchar(255), nb_of_nights integer not null, price_per_night double not null, primary key (id))
+INSERT INTO HOTEL_BOOKING VALUES(1,'Marina',3,200.5E0)
+INSERT INTO HOTEL_BOOKING VALUES(2,'Antlantic',8,90.0E0)
+INSERT INTO HOTEL_BOOKING VALUES(3,'Grandiose',5,75.8E0)
+INSERT INTO HOTEL_BOOKING VALUES(4,'Scarlet',3,143.9E0)
+INSERT INTO HOTEL_BOOKING VALUES(5,'Diamond',6,64.4E0)
+INSERT INTO HOTEL_BOOKING VALUES(6,'OcenSide',2,147.2E0)
+INSERT INTO HOTEL_BOOKING VALUES(7,'Fantasy',2,205.8E0)
+INSERT INTO HOTEL_BOOKING VALUES(8,'Triumph',6,55.7E0)
+INSERT INTO HOTEL_BOOKING VALUES(9,'Regal',1,301.9E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 10
+COMMIT
+drop table hotel_booking if exists
+drop sequence hibernate_sequence if exists
+DISCONNECT
+/*C203*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C204*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C205*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C206*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C207*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C208*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C209*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C210*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C211*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C212*/SET SCHEMA PUBLIC
+drop table hotel_booking if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table hotel_booking (id bigint not null, hotel_name varchar(255), nb_of_nights integer not null, price_per_night double not null, primary key (id))
+INSERT INTO HOTEL_BOOKING VALUES(1,'Marina',3,200.5E0)
+INSERT INTO HOTEL_BOOKING VALUES(2,'Antlantic',8,90.0E0)
+INSERT INTO HOTEL_BOOKING VALUES(3,'Grandiose',5,75.8E0)
+INSERT INTO HOTEL_BOOKING VALUES(4,'Scarlet',3,143.9E0)
+INSERT INTO HOTEL_BOOKING VALUES(5,'Diamond',6,64.4E0)
+INSERT INTO HOTEL_BOOKING VALUES(6,'OcenSide',2,147.2E0)
+INSERT INTO HOTEL_BOOKING VALUES(7,'Fantasy',2,205.8E0)
+INSERT INTO HOTEL_BOOKING VALUES(8,'Triumph',6,55.7E0)
+INSERT INTO HOTEL_BOOKING VALUES(9,'Regal',1,301.9E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 10
+COMMIT
