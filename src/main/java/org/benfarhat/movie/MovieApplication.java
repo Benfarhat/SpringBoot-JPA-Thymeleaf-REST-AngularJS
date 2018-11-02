@@ -1,14 +1,16 @@
-package org.benfarhat.springboot;
+package org.benfarhat.movie;
 
 import org.jsondoc.spring.boot.starter.EnableJSONDoc;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 
 @SpringBootApplication
 @EnableJSONDoc
-public class BookingApplication {
+@EnableCaching
+public class MovieApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BookingApplication.class, args);
+		SpringApplication.run(MovieApplication.class, args);
 	}
 }

@@ -1,11 +1,11 @@
-package org.benfarhat.springboot.controller;
+package org.benfarhat.movie.controller;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.benfarhat.springboot.model.HotelBooking;
-import org.benfarhat.springboot.repository.BookingRepository;
+import org.benfarhat.movie.model.Movie;
+import org.benfarhat.movie.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
@@ -16,13 +16,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ViewController {
 	
-	private BookingRepository bookingRepository;
+	private MovieRepository bookingRepository;
 	@Value("${app-mode}")
 	private String appMode;
 	@Value("${app-author}")
 	private String appAuthor;
 	@Autowired
-	public ViewController(BookingRepository bookingRepository, Environment env) {
+	public ViewController(MovieRepository bookingRepository, Environment env) {
 		super();
 		this.bookingRepository = bookingRepository;
 		// Next line is equivalet to using @value annotation

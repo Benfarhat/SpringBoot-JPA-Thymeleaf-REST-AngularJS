@@ -1,0 +1,963 @@
+/*C13*/SET SCHEMA PUBLIC
+drop table actor if exists
+drop table actor_movies if exists
+drop table genre if exists
+drop table genre_movies if exists
+drop table movie if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table actor (id bigint not null, birth_date timestamp, birth_place varchar(255), name varchar(255), primary key (id))
+create table actor_movies (actors_id bigint not null, movies_id bigint not null)
+create table genre (id bigint not null, name varchar(255), primary key (id))
+create table genre_movies (genres_id bigint not null, movies_id bigint not null)
+create table movie (id bigint not null, director varchar(255), duration integer not null, image_url varchar(255), title varchar(255), year integer not null, primary key (id))
+alter table actor_movies add constraint FK72iqo9w8c9h10al27iqms44gy foreign key (movies_id) references movie
+alter table actor_movies add constraint FKobjwvns890gus9qi2e6a7gmxp foreign key (actors_id) references actor
+alter table genre_movies add constraint FKtgatsvi7lb98phh9ft1gogkep foreign key (movies_id) references movie
+alter table genre_movies add constraint FKe8j9am8l355522fj88clwhbt8 foreign key (genres_id) references genre
+INSERT INTO ACTOR VALUES(1,'1979-12-31 00:00:00.000000','Macao','Rama Dillard')
+INSERT INTO ACTOR VALUES(2,'1995-01-02 00:00:00.000000','Tonga','Vincent Obrien')
+INSERT INTO ACTOR VALUES(3,'1996-12-30 00:00:00.000000','Suriname','Bert Rosario')
+INSERT INTO ACTOR VALUES(4,'1985-12-30 00:00:00.000000','Marshall Islands','Shay Wolfe')
+INSERT INTO ACTOR VALUES(5,'1994-01-03 00:00:00.000000','United States','Maite Hood')
+INSERT INTO ACTOR VALUES(6,'1995-01-02 00:00:00.000000','Ethiopia','Leonard Tyler')
+INSERT INTO ACTOR VALUES(7,'1980-12-29 00:00:00.000000','New Zealand','Basil Chan')
+INSERT INTO ACTOR VALUES(8,'1988-01-04 00:00:00.000000','Lesotho','Liberty Hardy')
+INSERT INTO ACTOR VALUES(9,'1996-01-01 00:00:00.000000','United States','Helen Carlson')
+INSERT INTO ACTOR VALUES(10,'2001-01-01 00:00:00.000000','Svalbard and Jan Mayen Islands','Bianca Chan')
+INSERT INTO ACTOR VALUES(11,'1990-01-01 00:00:00.000000','Belarus','Micah Padilla')
+INSERT INTO ACTOR VALUES(12,'1997-12-29 00:00:00.000000','Tanzania','Rajah Randall')
+INSERT INTO ACTOR VALUES(13,'1983-01-03 00:00:00.000000','Pitcairn Islands','Iola Hammond')
+INSERT INTO ACTOR VALUES(14,'1979-01-01 00:00:00.000000','Libya','Trevor Chavez')
+INSERT INTO ACTOR VALUES(15,'1984-01-02 00:00:00.000000','Germany','Tyrone Carter')
+INSERT INTO ACTOR VALUES(16,'2000-01-03 00:00:00.000000','Algeria','Kiara Cain')
+INSERT INTO ACTOR VALUES(17,'1977-01-03 00:00:00.000000','Sao Tome and Principe','Basil White')
+INSERT INTO ACTOR VALUES(18,'1984-12-31 00:00:00.000000','Korea, North','Olga Weber')
+INSERT INTO ACTOR VALUES(19,'1975-12-29 00:00:00.000000','Egypt','Jayme Rivas')
+INSERT INTO ACTOR VALUES(20,'1990-12-31 00:00:00.000000','Lesotho','Angela Deleon')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 21
+COMMIT
+INSERT INTO GENRE VALUES(21,'Action')
+INSERT INTO GENRE VALUES(22,'Romance')
+INSERT INTO GENRE VALUES(23,'Science')
+INSERT INTO GENRE VALUES(24,'Fantasy')
+INSERT INTO GENRE VALUES(25,'Children')
+INSERT INTO GENRE VALUES(26,'Horror')
+INSERT INTO GENRE VALUES(27,'Western')
+INSERT INTO GENRE VALUES(28,'Biography')
+INSERT INTO GENRE VALUES(29,'Thriller')
+INSERT INTO GENRE VALUES(30,'Adventure')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 31
+COMMIT
+INSERT INTO MOVIE VALUES(31,'James Cameron',162,'http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg','Avatar',2009)
+INSERT INTO MOVIE VALUES(32,'Francis Lawrence',101,'http://ia.media-imdb.com/images/M/MV5BMTU4NzMyNDk1OV5BMl5BanBnXkFtZTcwOTEwMzU1MQ@@._V1_SX300.jpg','I am a legend',2007)
+INSERT INTO MOVIE VALUES(33,'Zack Snyder',117,'http://ia.media-imdb.com/images/M/MV5BMjAzNTkzNjcxNl5BMl5BanBnXkFtZTYwNDA4NjE3._V1_SX300.jpg','300',2006)
+INSERT INTO MOVIE VALUES(34,'Joss Whedon',143,'http://ia.media-imdb.com/images/M/MV5BMTk2NTI1MTU4N15BMl5BanBnXkFtZTcwODg0OTY0Nw@@._V1_SX300.jpg','The Avengers',2012)
+INSERT INTO MOVIE VALUES(35,'Martin Scorsese',180,'https://ia.media-imdb.com/images/M/MV5BMjIxMjgxNTk0MF5BMl5BanBnXkFtZTgwNjIyOTg2MDE@._V1_SX300.jpg','The Wolf of Wall Street',2013)
+INSERT INTO MOVIE VALUES(36,'Christopher Nolan',169,'http://ia.media-imdb.com/images/M/MV5BMTY2MjMwNDE4OV5BMl5BanBnXkFtZTgwNjI1NjU0OTE@._V1_SX300.jpg','Interstellar',2014)
+INSERT INTO MOVIE VALUES(37,'JBruno Heller',42,'http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg','Gotham',2014)
+INSERT INTO MOVIE VALUES(38,'Scott Derrickson',116,'http://ia.media-imdb.com/images/M/MV5BNjgwNzAzNjk1Nl5BMl5BanBnXkFtZTgwMzQ2NjI1OTE@._V1_SX300.jpg','Doctor Strange',2016)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 39
+COMMIT
+alter table actor_movies drop constraint FK72iqo9w8c9h10al27iqms44gy
+alter table actor_movies drop constraint FKobjwvns890gus9qi2e6a7gmxp
+alter table genre_movies drop constraint FKtgatsvi7lb98phh9ft1gogkep
+alter table genre_movies drop constraint FKe8j9am8l355522fj88clwhbt8
+drop table actor if exists
+drop table actor_movies if exists
+drop table genre if exists
+drop table genre_movies if exists
+drop table movie if exists
+drop sequence hibernate_sequence if exists
+DISCONNECT
+/*C14*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C15*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C16*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C17*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C18*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C19*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C20*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C21*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C22*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C23*/SET SCHEMA PUBLIC
+drop table actor if exists
+drop table actor_movies if exists
+drop table genre if exists
+drop table genre_movies if exists
+drop table movie if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table actor (id bigint not null, birth_date timestamp, birth_place varchar(255), name varchar(255), primary key (id))
+create table actor_movies (actors_id bigint not null, movies_id bigint not null)
+create table genre (id bigint not null, name varchar(255), primary key (id))
+create table genre_movies (genres_id bigint not null, movies_id bigint not null)
+create table movie (id bigint not null, director varchar(255), duration integer not null, image_url varchar(255), title varchar(255), year integer not null, primary key (id))
+alter table actor_movies add constraint FK72iqo9w8c9h10al27iqms44gy foreign key (movies_id) references movie
+alter table actor_movies add constraint FKobjwvns890gus9qi2e6a7gmxp foreign key (actors_id) references actor
+alter table genre_movies add constraint FKtgatsvi7lb98phh9ft1gogkep foreign key (movies_id) references movie
+alter table genre_movies add constraint FKe8j9am8l355522fj88clwhbt8 foreign key (genres_id) references genre
+INSERT INTO ACTOR VALUES(1,'1979-12-31 00:00:00.000000','Macao','Rama Dillard')
+INSERT INTO ACTOR VALUES(2,'1995-01-02 00:00:00.000000','Tonga','Vincent Obrien')
+INSERT INTO ACTOR VALUES(3,'1996-12-30 00:00:00.000000','Suriname','Bert Rosario')
+INSERT INTO ACTOR VALUES(4,'1985-12-30 00:00:00.000000','Marshall Islands','Shay Wolfe')
+INSERT INTO ACTOR VALUES(5,'1994-01-03 00:00:00.000000','United States','Maite Hood')
+INSERT INTO ACTOR VALUES(6,'1995-01-02 00:00:00.000000','Ethiopia','Leonard Tyler')
+INSERT INTO ACTOR VALUES(7,'1980-12-29 00:00:00.000000','New Zealand','Basil Chan')
+INSERT INTO ACTOR VALUES(8,'1988-01-04 00:00:00.000000','Lesotho','Liberty Hardy')
+INSERT INTO ACTOR VALUES(9,'1996-01-01 00:00:00.000000','United States','Helen Carlson')
+INSERT INTO ACTOR VALUES(10,'2001-01-01 00:00:00.000000','Svalbard and Jan Mayen Islands','Bianca Chan')
+INSERT INTO ACTOR VALUES(11,'1990-01-01 00:00:00.000000','Belarus','Micah Padilla')
+INSERT INTO ACTOR VALUES(12,'1997-12-29 00:00:00.000000','Tanzania','Rajah Randall')
+INSERT INTO ACTOR VALUES(13,'1983-01-03 00:00:00.000000','Pitcairn Islands','Iola Hammond')
+INSERT INTO ACTOR VALUES(14,'1979-01-01 00:00:00.000000','Libya','Trevor Chavez')
+INSERT INTO ACTOR VALUES(15,'1984-01-02 00:00:00.000000','Germany','Tyrone Carter')
+INSERT INTO ACTOR VALUES(16,'2000-01-03 00:00:00.000000','Algeria','Kiara Cain')
+INSERT INTO ACTOR VALUES(17,'1977-01-03 00:00:00.000000','Sao Tome and Principe','Basil White')
+INSERT INTO ACTOR VALUES(18,'1984-12-31 00:00:00.000000','Korea, North','Olga Weber')
+INSERT INTO ACTOR VALUES(19,'1975-12-29 00:00:00.000000','Egypt','Jayme Rivas')
+INSERT INTO ACTOR VALUES(20,'1990-12-31 00:00:00.000000','Lesotho','Angela Deleon')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 21
+COMMIT
+INSERT INTO GENRE VALUES(21,'Action')
+INSERT INTO GENRE VALUES(22,'Romance')
+INSERT INTO GENRE VALUES(23,'Science')
+INSERT INTO GENRE VALUES(24,'Fantasy')
+INSERT INTO GENRE VALUES(25,'Children')
+INSERT INTO GENRE VALUES(26,'Horror')
+INSERT INTO GENRE VALUES(27,'Western')
+INSERT INTO GENRE VALUES(28,'Biography')
+INSERT INTO GENRE VALUES(29,'Thriller')
+INSERT INTO GENRE VALUES(30,'Adventure')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 31
+COMMIT
+INSERT INTO MOVIE VALUES(31,'James Cameron',162,'http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg','Avatar',2009)
+INSERT INTO MOVIE VALUES(32,'Francis Lawrence',101,'http://ia.media-imdb.com/images/M/MV5BMTU4NzMyNDk1OV5BMl5BanBnXkFtZTcwOTEwMzU1MQ@@._V1_SX300.jpg','I am a legend',2007)
+INSERT INTO MOVIE VALUES(33,'Zack Snyder',117,'http://ia.media-imdb.com/images/M/MV5BMjAzNTkzNjcxNl5BMl5BanBnXkFtZTYwNDA4NjE3._V1_SX300.jpg','300',2006)
+INSERT INTO MOVIE VALUES(34,'Joss Whedon',143,'http://ia.media-imdb.com/images/M/MV5BMTk2NTI1MTU4N15BMl5BanBnXkFtZTcwODg0OTY0Nw@@._V1_SX300.jpg','The Avengers',2012)
+INSERT INTO MOVIE VALUES(35,'Martin Scorsese',180,'https://ia.media-imdb.com/images/M/MV5BMjIxMjgxNTk0MF5BMl5BanBnXkFtZTgwNjIyOTg2MDE@._V1_SX300.jpg','The Wolf of Wall Street',2013)
+INSERT INTO MOVIE VALUES(36,'Christopher Nolan',169,'http://ia.media-imdb.com/images/M/MV5BMTY2MjMwNDE4OV5BMl5BanBnXkFtZTgwNjI1NjU0OTE@._V1_SX300.jpg','Interstellar',2014)
+INSERT INTO MOVIE VALUES(37,'JBruno Heller',42,'http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg','Gotham',2014)
+INSERT INTO MOVIE VALUES(38,'Scott Derrickson',116,'http://ia.media-imdb.com/images/M/MV5BNjgwNzAzNjk1Nl5BMl5BanBnXkFtZTgwMzQ2NjI1OTE@._V1_SX300.jpg','Doctor Strange',2016)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 39
+COMMIT
+alter table actor_movies drop constraint FK72iqo9w8c9h10al27iqms44gy
+alter table actor_movies drop constraint FKobjwvns890gus9qi2e6a7gmxp
+alter table genre_movies drop constraint FKtgatsvi7lb98phh9ft1gogkep
+alter table genre_movies drop constraint FKe8j9am8l355522fj88clwhbt8
+drop table actor if exists
+drop table actor_movies if exists
+drop table genre if exists
+drop table genre_movies if exists
+drop table movie if exists
+drop sequence hibernate_sequence if exists
+DISCONNECT
+/*C24*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C25*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C26*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C27*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C28*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C29*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C30*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C31*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C32*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C33*/SET SCHEMA PUBLIC
+drop table actor if exists
+drop table actor_movies if exists
+drop table genre if exists
+drop table genre_movies if exists
+drop table movie if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table actor (id bigint not null, birth_date timestamp, birth_place varchar(255), name varchar(255), primary key (id))
+create table actor_movies (actors_id bigint not null, movies_id bigint not null)
+create table genre (id bigint not null, name varchar(255), primary key (id))
+create table genre_movies (genres_id bigint not null, movies_id bigint not null)
+create table movie (id bigint not null, director varchar(255), duration integer not null, image_url varchar(255), title varchar(255), year integer not null, primary key (id))
+alter table actor_movies add constraint FK72iqo9w8c9h10al27iqms44gy foreign key (movies_id) references movie
+alter table actor_movies add constraint FKobjwvns890gus9qi2e6a7gmxp foreign key (actors_id) references actor
+alter table genre_movies add constraint FKtgatsvi7lb98phh9ft1gogkep foreign key (movies_id) references movie
+alter table genre_movies add constraint FKe8j9am8l355522fj88clwhbt8 foreign key (genres_id) references genre
+INSERT INTO ACTOR VALUES(1,'1979-12-31 00:00:00.000000','Macao','Rama Dillard')
+INSERT INTO ACTOR VALUES(2,'1995-01-02 00:00:00.000000','Tonga','Vincent Obrien')
+INSERT INTO ACTOR VALUES(3,'1996-12-30 00:00:00.000000','Suriname','Bert Rosario')
+INSERT INTO ACTOR VALUES(4,'1985-12-30 00:00:00.000000','Marshall Islands','Shay Wolfe')
+INSERT INTO ACTOR VALUES(5,'1994-01-03 00:00:00.000000','United States','Maite Hood')
+INSERT INTO ACTOR VALUES(6,'1995-01-02 00:00:00.000000','Ethiopia','Leonard Tyler')
+INSERT INTO ACTOR VALUES(7,'1980-12-29 00:00:00.000000','New Zealand','Basil Chan')
+INSERT INTO ACTOR VALUES(8,'1988-01-04 00:00:00.000000','Lesotho','Liberty Hardy')
+INSERT INTO ACTOR VALUES(9,'1996-01-01 00:00:00.000000','United States','Helen Carlson')
+INSERT INTO ACTOR VALUES(10,'2001-01-01 00:00:00.000000','Svalbard and Jan Mayen Islands','Bianca Chan')
+INSERT INTO ACTOR VALUES(11,'1990-01-01 00:00:00.000000','Belarus','Micah Padilla')
+INSERT INTO ACTOR VALUES(12,'1997-12-29 00:00:00.000000','Tanzania','Rajah Randall')
+INSERT INTO ACTOR VALUES(13,'1983-01-03 00:00:00.000000','Pitcairn Islands','Iola Hammond')
+INSERT INTO ACTOR VALUES(14,'1979-01-01 00:00:00.000000','Libya','Trevor Chavez')
+INSERT INTO ACTOR VALUES(15,'1984-01-02 00:00:00.000000','Germany','Tyrone Carter')
+INSERT INTO ACTOR VALUES(16,'2000-01-03 00:00:00.000000','Algeria','Kiara Cain')
+INSERT INTO ACTOR VALUES(17,'1977-01-03 00:00:00.000000','Sao Tome and Principe','Basil White')
+INSERT INTO ACTOR VALUES(18,'1984-12-31 00:00:00.000000','Korea, North','Olga Weber')
+INSERT INTO ACTOR VALUES(19,'1975-12-29 00:00:00.000000','Egypt','Jayme Rivas')
+INSERT INTO ACTOR VALUES(20,'1990-12-31 00:00:00.000000','Lesotho','Angela Deleon')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 21
+COMMIT
+INSERT INTO GENRE VALUES(21,'Action')
+INSERT INTO GENRE VALUES(22,'Romance')
+INSERT INTO GENRE VALUES(23,'Science')
+INSERT INTO GENRE VALUES(24,'Fantasy')
+INSERT INTO GENRE VALUES(25,'Children')
+INSERT INTO GENRE VALUES(26,'Horror')
+INSERT INTO GENRE VALUES(27,'Western')
+INSERT INTO GENRE VALUES(28,'Biography')
+INSERT INTO GENRE VALUES(29,'Thriller')
+INSERT INTO GENRE VALUES(30,'Adventure')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 31
+COMMIT
+INSERT INTO MOVIE VALUES(31,'James Cameron',162,'http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg','Avatar',2009)
+INSERT INTO MOVIE VALUES(32,'Francis Lawrence',101,'http://ia.media-imdb.com/images/M/MV5BMTU4NzMyNDk1OV5BMl5BanBnXkFtZTcwOTEwMzU1MQ@@._V1_SX300.jpg','I am a legend',2007)
+INSERT INTO MOVIE VALUES(33,'Zack Snyder',117,'http://ia.media-imdb.com/images/M/MV5BMjAzNTkzNjcxNl5BMl5BanBnXkFtZTYwNDA4NjE3._V1_SX300.jpg','300',2006)
+INSERT INTO MOVIE VALUES(34,'Joss Whedon',143,'http://ia.media-imdb.com/images/M/MV5BMTk2NTI1MTU4N15BMl5BanBnXkFtZTcwODg0OTY0Nw@@._V1_SX300.jpg','The Avengers',2012)
+INSERT INTO MOVIE VALUES(35,'Martin Scorsese',180,'https://ia.media-imdb.com/images/M/MV5BMjIxMjgxNTk0MF5BMl5BanBnXkFtZTgwNjIyOTg2MDE@._V1_SX300.jpg','The Wolf of Wall Street',2013)
+INSERT INTO MOVIE VALUES(36,'Christopher Nolan',169,'http://ia.media-imdb.com/images/M/MV5BMTY2MjMwNDE4OV5BMl5BanBnXkFtZTgwNjI1NjU0OTE@._V1_SX300.jpg','Interstellar',2014)
+INSERT INTO MOVIE VALUES(37,'JBruno Heller',42,'http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg','Gotham',2014)
+INSERT INTO MOVIE VALUES(38,'Scott Derrickson',116,'http://ia.media-imdb.com/images/M/MV5BNjgwNzAzNjk1Nl5BMl5BanBnXkFtZTgwMzQ2NjI1OTE@._V1_SX300.jpg','Doctor Strange',2016)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 39
+COMMIT
+alter table actor_movies drop constraint FK72iqo9w8c9h10al27iqms44gy
+alter table actor_movies drop constraint FKobjwvns890gus9qi2e6a7gmxp
+alter table genre_movies drop constraint FKtgatsvi7lb98phh9ft1gogkep
+alter table genre_movies drop constraint FKe8j9am8l355522fj88clwhbt8
+drop table actor if exists
+drop table actor_movies if exists
+drop table genre if exists
+drop table genre_movies if exists
+drop table movie if exists
+drop sequence hibernate_sequence if exists
+DISCONNECT
+/*C34*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C35*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C36*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C37*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C38*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C39*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C40*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C41*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C42*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C43*/SET SCHEMA PUBLIC
+drop table actor if exists
+drop table actor_movies if exists
+drop table genre if exists
+drop table genre_movies if exists
+drop table movie if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table actor (id bigint not null, birth_date timestamp, birth_place varchar(255), name varchar(255), primary key (id))
+create table actor_movies (actors_id bigint not null, movies_id bigint not null)
+create table genre (id bigint not null, name varchar(255), primary key (id))
+create table genre_movies (genres_id bigint not null, movies_id bigint not null)
+create table movie (id bigint not null, director varchar(255), duration integer not null, image_url varchar(255), title varchar(255), year integer not null, primary key (id))
+alter table actor_movies add constraint FK72iqo9w8c9h10al27iqms44gy foreign key (movies_id) references movie
+alter table actor_movies add constraint FKobjwvns890gus9qi2e6a7gmxp foreign key (actors_id) references actor
+alter table genre_movies add constraint FKtgatsvi7lb98phh9ft1gogkep foreign key (movies_id) references movie
+alter table genre_movies add constraint FKe8j9am8l355522fj88clwhbt8 foreign key (genres_id) references genre
+INSERT INTO ACTOR VALUES(1,'1979-12-31 00:00:00.000000','Macao','Rama Dillard')
+INSERT INTO ACTOR VALUES(2,'1995-01-02 00:00:00.000000','Tonga','Vincent Obrien')
+INSERT INTO ACTOR VALUES(3,'1996-12-30 00:00:00.000000','Suriname','Bert Rosario')
+INSERT INTO ACTOR VALUES(4,'1985-12-30 00:00:00.000000','Marshall Islands','Shay Wolfe')
+INSERT INTO ACTOR VALUES(5,'1994-01-03 00:00:00.000000','United States','Maite Hood')
+INSERT INTO ACTOR VALUES(6,'1995-01-02 00:00:00.000000','Ethiopia','Leonard Tyler')
+INSERT INTO ACTOR VALUES(7,'1980-12-29 00:00:00.000000','New Zealand','Basil Chan')
+INSERT INTO ACTOR VALUES(8,'1988-01-04 00:00:00.000000','Lesotho','Liberty Hardy')
+INSERT INTO ACTOR VALUES(9,'1996-01-01 00:00:00.000000','United States','Helen Carlson')
+INSERT INTO ACTOR VALUES(10,'2001-01-01 00:00:00.000000','Svalbard and Jan Mayen Islands','Bianca Chan')
+INSERT INTO ACTOR VALUES(11,'1990-01-01 00:00:00.000000','Belarus','Micah Padilla')
+INSERT INTO ACTOR VALUES(12,'1997-12-29 00:00:00.000000','Tanzania','Rajah Randall')
+INSERT INTO ACTOR VALUES(13,'1983-01-03 00:00:00.000000','Pitcairn Islands','Iola Hammond')
+INSERT INTO ACTOR VALUES(14,'1979-01-01 00:00:00.000000','Libya','Trevor Chavez')
+INSERT INTO ACTOR VALUES(15,'1984-01-02 00:00:00.000000','Germany','Tyrone Carter')
+INSERT INTO ACTOR VALUES(16,'2000-01-03 00:00:00.000000','Algeria','Kiara Cain')
+INSERT INTO ACTOR VALUES(17,'1977-01-03 00:00:00.000000','Sao Tome and Principe','Basil White')
+INSERT INTO ACTOR VALUES(18,'1984-12-31 00:00:00.000000','Korea, North','Olga Weber')
+INSERT INTO ACTOR VALUES(19,'1975-12-29 00:00:00.000000','Egypt','Jayme Rivas')
+INSERT INTO ACTOR VALUES(20,'1990-12-31 00:00:00.000000','Lesotho','Angela Deleon')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 21
+COMMIT
+INSERT INTO GENRE VALUES(21,'Action')
+INSERT INTO GENRE VALUES(22,'Romance')
+INSERT INTO GENRE VALUES(23,'Science')
+INSERT INTO GENRE VALUES(24,'Fantasy')
+INSERT INTO GENRE VALUES(25,'Children')
+INSERT INTO GENRE VALUES(26,'Horror')
+INSERT INTO GENRE VALUES(27,'Western')
+INSERT INTO GENRE VALUES(28,'Biography')
+INSERT INTO GENRE VALUES(29,'Thriller')
+INSERT INTO GENRE VALUES(30,'Adventure')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 31
+COMMIT
+INSERT INTO MOVIE VALUES(31,'James Cameron',162,'http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg','Avatar',2009)
+INSERT INTO MOVIE VALUES(32,'Francis Lawrence',101,'http://ia.media-imdb.com/images/M/MV5BMTU4NzMyNDk1OV5BMl5BanBnXkFtZTcwOTEwMzU1MQ@@._V1_SX300.jpg','I am a legend',2007)
+INSERT INTO MOVIE VALUES(33,'Zack Snyder',117,'http://ia.media-imdb.com/images/M/MV5BMjAzNTkzNjcxNl5BMl5BanBnXkFtZTYwNDA4NjE3._V1_SX300.jpg','300',2006)
+INSERT INTO MOVIE VALUES(34,'Joss Whedon',143,'http://ia.media-imdb.com/images/M/MV5BMTk2NTI1MTU4N15BMl5BanBnXkFtZTcwODg0OTY0Nw@@._V1_SX300.jpg','The Avengers',2012)
+INSERT INTO MOVIE VALUES(35,'Martin Scorsese',180,'https://ia.media-imdb.com/images/M/MV5BMjIxMjgxNTk0MF5BMl5BanBnXkFtZTgwNjIyOTg2MDE@._V1_SX300.jpg','The Wolf of Wall Street',2013)
+INSERT INTO MOVIE VALUES(36,'Christopher Nolan',169,'http://ia.media-imdb.com/images/M/MV5BMTY2MjMwNDE4OV5BMl5BanBnXkFtZTgwNjI1NjU0OTE@._V1_SX300.jpg','Interstellar',2014)
+INSERT INTO MOVIE VALUES(37,'JBruno Heller',42,'http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg','Gotham',2014)
+INSERT INTO MOVIE VALUES(38,'Scott Derrickson',116,'http://ia.media-imdb.com/images/M/MV5BNjgwNzAzNjk1Nl5BMl5BanBnXkFtZTgwMzQ2NjI1OTE@._V1_SX300.jpg','Doctor Strange',2016)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 39
+COMMIT
+alter table actor_movies drop constraint FK72iqo9w8c9h10al27iqms44gy
+alter table actor_movies drop constraint FKobjwvns890gus9qi2e6a7gmxp
+alter table genre_movies drop constraint FKtgatsvi7lb98phh9ft1gogkep
+alter table genre_movies drop constraint FKe8j9am8l355522fj88clwhbt8
+drop table actor if exists
+drop table actor_movies if exists
+drop table genre if exists
+drop table genre_movies if exists
+drop table movie if exists
+drop sequence hibernate_sequence if exists
+DISCONNECT
+/*C44*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C45*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C46*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C47*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C48*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C49*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C50*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C51*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C52*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C53*/SET SCHEMA PUBLIC
+drop table actor if exists
+drop table actor_movies if exists
+drop table genre if exists
+drop table genre_movies if exists
+drop table movie if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table actor (id bigint not null, birth_date timestamp, birth_place varchar(255), name varchar(255), primary key (id))
+create table actor_movies (actors_id bigint not null, movies_id bigint not null)
+create table genre (id bigint not null, name varchar(255), primary key (id))
+create table genre_movies (genres_id bigint not null, movies_id bigint not null)
+create table movie (id bigint not null, director varchar(255), duration integer not null, image_url varchar(255), title varchar(255), year integer not null, primary key (id))
+alter table actor_movies add constraint FK72iqo9w8c9h10al27iqms44gy foreign key (movies_id) references movie
+alter table actor_movies add constraint FKobjwvns890gus9qi2e6a7gmxp foreign key (actors_id) references actor
+alter table genre_movies add constraint FKtgatsvi7lb98phh9ft1gogkep foreign key (movies_id) references movie
+alter table genre_movies add constraint FKe8j9am8l355522fj88clwhbt8 foreign key (genres_id) references genre
+INSERT INTO ACTOR VALUES(1,'1979-12-31 00:00:00.000000','Macao','Rama Dillard')
+INSERT INTO ACTOR VALUES(2,'1995-01-02 00:00:00.000000','Tonga','Vincent Obrien')
+INSERT INTO ACTOR VALUES(3,'1996-12-30 00:00:00.000000','Suriname','Bert Rosario')
+INSERT INTO ACTOR VALUES(4,'1985-12-30 00:00:00.000000','Marshall Islands','Shay Wolfe')
+INSERT INTO ACTOR VALUES(5,'1994-01-03 00:00:00.000000','United States','Maite Hood')
+INSERT INTO ACTOR VALUES(6,'1995-01-02 00:00:00.000000','Ethiopia','Leonard Tyler')
+INSERT INTO ACTOR VALUES(7,'1980-12-29 00:00:00.000000','New Zealand','Basil Chan')
+INSERT INTO ACTOR VALUES(8,'1988-01-04 00:00:00.000000','Lesotho','Liberty Hardy')
+INSERT INTO ACTOR VALUES(9,'1996-01-01 00:00:00.000000','United States','Helen Carlson')
+INSERT INTO ACTOR VALUES(10,'2001-01-01 00:00:00.000000','Svalbard and Jan Mayen Islands','Bianca Chan')
+INSERT INTO ACTOR VALUES(11,'1990-01-01 00:00:00.000000','Belarus','Micah Padilla')
+INSERT INTO ACTOR VALUES(12,'1997-12-29 00:00:00.000000','Tanzania','Rajah Randall')
+INSERT INTO ACTOR VALUES(13,'1983-01-03 00:00:00.000000','Pitcairn Islands','Iola Hammond')
+INSERT INTO ACTOR VALUES(14,'1979-01-01 00:00:00.000000','Libya','Trevor Chavez')
+INSERT INTO ACTOR VALUES(15,'1984-01-02 00:00:00.000000','Germany','Tyrone Carter')
+INSERT INTO ACTOR VALUES(16,'2000-01-03 00:00:00.000000','Algeria','Kiara Cain')
+INSERT INTO ACTOR VALUES(17,'1977-01-03 00:00:00.000000','Sao Tome and Principe','Basil White')
+INSERT INTO ACTOR VALUES(18,'1984-12-31 00:00:00.000000','Korea, North','Olga Weber')
+INSERT INTO ACTOR VALUES(19,'1975-12-29 00:00:00.000000','Egypt','Jayme Rivas')
+INSERT INTO ACTOR VALUES(20,'1990-12-31 00:00:00.000000','Lesotho','Angela Deleon')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 21
+COMMIT
+INSERT INTO GENRE VALUES(21,'Action')
+INSERT INTO GENRE VALUES(22,'Romance')
+INSERT INTO GENRE VALUES(23,'Science')
+INSERT INTO GENRE VALUES(24,'Fantasy')
+INSERT INTO GENRE VALUES(25,'Children')
+INSERT INTO GENRE VALUES(26,'Horror')
+INSERT INTO GENRE VALUES(27,'Western')
+INSERT INTO GENRE VALUES(28,'Biography')
+INSERT INTO GENRE VALUES(29,'Thriller')
+INSERT INTO GENRE VALUES(30,'Adventure')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 31
+COMMIT
+INSERT INTO MOVIE VALUES(31,'James Cameron',162,'http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg','Avatar',2009)
+INSERT INTO MOVIE VALUES(32,'Francis Lawrence',101,'http://ia.media-imdb.com/images/M/MV5BMTU4NzMyNDk1OV5BMl5BanBnXkFtZTcwOTEwMzU1MQ@@._V1_SX300.jpg','I am a legend',2007)
+INSERT INTO MOVIE VALUES(33,'Zack Snyder',117,'http://ia.media-imdb.com/images/M/MV5BMjAzNTkzNjcxNl5BMl5BanBnXkFtZTYwNDA4NjE3._V1_SX300.jpg','300',2006)
+INSERT INTO MOVIE VALUES(34,'Joss Whedon',143,'http://ia.media-imdb.com/images/M/MV5BMTk2NTI1MTU4N15BMl5BanBnXkFtZTcwODg0OTY0Nw@@._V1_SX300.jpg','The Avengers',2012)
+INSERT INTO MOVIE VALUES(35,'Martin Scorsese',180,'https://ia.media-imdb.com/images/M/MV5BMjIxMjgxNTk0MF5BMl5BanBnXkFtZTgwNjIyOTg2MDE@._V1_SX300.jpg','The Wolf of Wall Street',2013)
+INSERT INTO MOVIE VALUES(36,'Christopher Nolan',169,'http://ia.media-imdb.com/images/M/MV5BMTY2MjMwNDE4OV5BMl5BanBnXkFtZTgwNjI1NjU0OTE@._V1_SX300.jpg','Interstellar',2014)
+INSERT INTO MOVIE VALUES(37,'JBruno Heller',42,'http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg','Gotham',2014)
+INSERT INTO MOVIE VALUES(38,'Scott Derrickson',116,'http://ia.media-imdb.com/images/M/MV5BNjgwNzAzNjk1Nl5BMl5BanBnXkFtZTgwMzQ2NjI1OTE@._V1_SX300.jpg','Doctor Strange',2016)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 39
+COMMIT
+alter table actor_movies drop constraint FK72iqo9w8c9h10al27iqms44gy
+alter table actor_movies drop constraint FKobjwvns890gus9qi2e6a7gmxp
+alter table genre_movies drop constraint FKtgatsvi7lb98phh9ft1gogkep
+alter table genre_movies drop constraint FKe8j9am8l355522fj88clwhbt8
+drop table actor if exists
+drop table actor_movies if exists
+drop table genre if exists
+drop table genre_movies if exists
+drop table movie if exists
+drop sequence hibernate_sequence if exists
+DISCONNECT
+/*C54*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C55*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C56*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C57*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C58*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C59*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C60*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C61*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C62*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C63*/SET SCHEMA PUBLIC
+drop table actor if exists
+drop table actor_movies if exists
+drop table genre if exists
+drop table genre_movies if exists
+drop table movie if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table actor (id bigint not null, birth_date timestamp, birth_place varchar(255), name varchar(255), primary key (id))
+create table actor_movies (actors_id bigint not null, movies_id bigint not null)
+create table genre (id bigint not null, name varchar(255), primary key (id))
+create table genre_movies (genres_id bigint not null, movies_id bigint not null)
+create table movie (id bigint not null, director varchar(255), duration integer not null, image_url varchar(255), title varchar(255), year integer not null, primary key (id))
+alter table actor_movies add constraint FK72iqo9w8c9h10al27iqms44gy foreign key (movies_id) references movie
+alter table actor_movies add constraint FKobjwvns890gus9qi2e6a7gmxp foreign key (actors_id) references actor
+alter table genre_movies add constraint FKtgatsvi7lb98phh9ft1gogkep foreign key (movies_id) references movie
+alter table genre_movies add constraint FKe8j9am8l355522fj88clwhbt8 foreign key (genres_id) references genre
+INSERT INTO ACTOR VALUES(1,'1979-12-31 00:00:00.000000','Macao','Rama Dillard')
+INSERT INTO ACTOR VALUES(2,'1995-01-02 00:00:00.000000','Tonga','Vincent Obrien')
+INSERT INTO ACTOR VALUES(3,'1996-12-30 00:00:00.000000','Suriname','Bert Rosario')
+INSERT INTO ACTOR VALUES(4,'1985-12-30 00:00:00.000000','Marshall Islands','Shay Wolfe')
+INSERT INTO ACTOR VALUES(5,'1994-01-03 00:00:00.000000','United States','Maite Hood')
+INSERT INTO ACTOR VALUES(6,'1995-01-02 00:00:00.000000','Ethiopia','Leonard Tyler')
+INSERT INTO ACTOR VALUES(7,'1980-12-29 00:00:00.000000','New Zealand','Basil Chan')
+INSERT INTO ACTOR VALUES(8,'1988-01-04 00:00:00.000000','Lesotho','Liberty Hardy')
+INSERT INTO ACTOR VALUES(9,'1996-01-01 00:00:00.000000','United States','Helen Carlson')
+INSERT INTO ACTOR VALUES(10,'2001-01-01 00:00:00.000000','Svalbard and Jan Mayen Islands','Bianca Chan')
+INSERT INTO ACTOR VALUES(11,'1990-01-01 00:00:00.000000','Belarus','Micah Padilla')
+INSERT INTO ACTOR VALUES(12,'1997-12-29 00:00:00.000000','Tanzania','Rajah Randall')
+INSERT INTO ACTOR VALUES(13,'1983-01-03 00:00:00.000000','Pitcairn Islands','Iola Hammond')
+INSERT INTO ACTOR VALUES(14,'1979-01-01 00:00:00.000000','Libya','Trevor Chavez')
+INSERT INTO ACTOR VALUES(15,'1984-01-02 00:00:00.000000','Germany','Tyrone Carter')
+INSERT INTO ACTOR VALUES(16,'2000-01-03 00:00:00.000000','Algeria','Kiara Cain')
+INSERT INTO ACTOR VALUES(17,'1977-01-03 00:00:00.000000','Sao Tome and Principe','Basil White')
+INSERT INTO ACTOR VALUES(18,'1984-12-31 00:00:00.000000','Korea, North','Olga Weber')
+INSERT INTO ACTOR VALUES(19,'1975-12-29 00:00:00.000000','Egypt','Jayme Rivas')
+INSERT INTO ACTOR VALUES(20,'1990-12-31 00:00:00.000000','Lesotho','Angela Deleon')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 21
+COMMIT
+INSERT INTO GENRE VALUES(21,'Action')
+INSERT INTO GENRE VALUES(22,'Romance')
+INSERT INTO GENRE VALUES(23,'Science')
+INSERT INTO GENRE VALUES(24,'Fantasy')
+INSERT INTO GENRE VALUES(25,'Children')
+INSERT INTO GENRE VALUES(26,'Horror')
+INSERT INTO GENRE VALUES(27,'Western')
+INSERT INTO GENRE VALUES(28,'Biography')
+INSERT INTO GENRE VALUES(29,'Thriller')
+INSERT INTO GENRE VALUES(30,'Adventure')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 31
+COMMIT
+INSERT INTO MOVIE VALUES(31,'James Cameron',162,'http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg','Avatar',2009)
+INSERT INTO MOVIE VALUES(32,'Francis Lawrence',101,'http://ia.media-imdb.com/images/M/MV5BMTU4NzMyNDk1OV5BMl5BanBnXkFtZTcwOTEwMzU1MQ@@._V1_SX300.jpg','I am a legend',2007)
+INSERT INTO MOVIE VALUES(33,'Zack Snyder',117,'http://ia.media-imdb.com/images/M/MV5BMjAzNTkzNjcxNl5BMl5BanBnXkFtZTYwNDA4NjE3._V1_SX300.jpg','300',2006)
+INSERT INTO MOVIE VALUES(34,'Joss Whedon',143,'http://ia.media-imdb.com/images/M/MV5BMTk2NTI1MTU4N15BMl5BanBnXkFtZTcwODg0OTY0Nw@@._V1_SX300.jpg','The Avengers',2012)
+INSERT INTO MOVIE VALUES(35,'Martin Scorsese',180,'https://ia.media-imdb.com/images/M/MV5BMjIxMjgxNTk0MF5BMl5BanBnXkFtZTgwNjIyOTg2MDE@._V1_SX300.jpg','The Wolf of Wall Street',2013)
+INSERT INTO MOVIE VALUES(36,'Christopher Nolan',169,'http://ia.media-imdb.com/images/M/MV5BMTY2MjMwNDE4OV5BMl5BanBnXkFtZTgwNjI1NjU0OTE@._V1_SX300.jpg','Interstellar',2014)
+INSERT INTO MOVIE VALUES(37,'JBruno Heller',42,'http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg','Gotham',2014)
+INSERT INTO MOVIE VALUES(38,'Scott Derrickson',116,'http://ia.media-imdb.com/images/M/MV5BNjgwNzAzNjk1Nl5BMl5BanBnXkFtZTgwMzQ2NjI1OTE@._V1_SX300.jpg','Doctor Strange',2016)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 39
+COMMIT
+alter table actor_movies drop constraint FK72iqo9w8c9h10al27iqms44gy
+alter table actor_movies drop constraint FKobjwvns890gus9qi2e6a7gmxp
+alter table genre_movies drop constraint FKtgatsvi7lb98phh9ft1gogkep
+alter table genre_movies drop constraint FKe8j9am8l355522fj88clwhbt8
+drop table actor if exists
+drop table actor_movies if exists
+drop table genre if exists
+drop table genre_movies if exists
+drop table movie if exists
+drop sequence hibernate_sequence if exists
+DISCONNECT
+/*C64*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C65*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C66*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C67*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C68*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C69*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C70*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C71*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C72*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C73*/SET SCHEMA PUBLIC
+drop table actor if exists
+drop table actor_movies if exists
+drop table genre if exists
+drop table genre_movies if exists
+drop table movie if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table actor (id bigint not null, birth_date timestamp, birth_place varchar(255), name varchar(255), primary key (id))
+create table actor_movies (actors_id bigint not null, movies_id bigint not null)
+create table genre (id bigint not null, name varchar(255), primary key (id))
+create table genre_movies (genres_id bigint not null, movies_id bigint not null)
+create table movie (id bigint not null, director varchar(255), duration integer not null, image_url varchar(255), title varchar(100) not null, year integer not null, primary key (id))
+alter table actor_movies add constraint FK72iqo9w8c9h10al27iqms44gy foreign key (movies_id) references movie
+alter table actor_movies add constraint FKobjwvns890gus9qi2e6a7gmxp foreign key (actors_id) references actor
+alter table genre_movies add constraint FKtgatsvi7lb98phh9ft1gogkep foreign key (movies_id) references movie
+alter table genre_movies add constraint FKe8j9am8l355522fj88clwhbt8 foreign key (genres_id) references genre
+INSERT INTO ACTOR VALUES(1,'1979-12-31 00:00:00.000000','Macao','Rama Dillard')
+INSERT INTO ACTOR VALUES(2,'1995-01-02 00:00:00.000000','Tonga','Vincent Obrien')
+INSERT INTO ACTOR VALUES(3,'1996-12-30 00:00:00.000000','Suriname','Bert Rosario')
+INSERT INTO ACTOR VALUES(4,'1985-12-30 00:00:00.000000','Marshall Islands','Shay Wolfe')
+INSERT INTO ACTOR VALUES(5,'1994-01-03 00:00:00.000000','United States','Maite Hood')
+INSERT INTO ACTOR VALUES(6,'1995-01-02 00:00:00.000000','Ethiopia','Leonard Tyler')
+INSERT INTO ACTOR VALUES(7,'1980-12-29 00:00:00.000000','New Zealand','Basil Chan')
+INSERT INTO ACTOR VALUES(8,'1988-01-04 00:00:00.000000','Lesotho','Liberty Hardy')
+INSERT INTO ACTOR VALUES(9,'1996-01-01 00:00:00.000000','United States','Helen Carlson')
+INSERT INTO ACTOR VALUES(10,'2001-01-01 00:00:00.000000','Svalbard and Jan Mayen Islands','Bianca Chan')
+INSERT INTO ACTOR VALUES(11,'1990-01-01 00:00:00.000000','Belarus','Micah Padilla')
+INSERT INTO ACTOR VALUES(12,'1997-12-29 00:00:00.000000','Tanzania','Rajah Randall')
+INSERT INTO ACTOR VALUES(13,'1983-01-03 00:00:00.000000','Pitcairn Islands','Iola Hammond')
+INSERT INTO ACTOR VALUES(14,'1979-01-01 00:00:00.000000','Libya','Trevor Chavez')
+INSERT INTO ACTOR VALUES(15,'1984-01-02 00:00:00.000000','Germany','Tyrone Carter')
+INSERT INTO ACTOR VALUES(16,'2000-01-03 00:00:00.000000','Algeria','Kiara Cain')
+INSERT INTO ACTOR VALUES(17,'1977-01-03 00:00:00.000000','Sao Tome and Principe','Basil White')
+INSERT INTO ACTOR VALUES(18,'1984-12-31 00:00:00.000000','Korea, North','Olga Weber')
+INSERT INTO ACTOR VALUES(19,'1975-12-29 00:00:00.000000','Egypt','Jayme Rivas')
+INSERT INTO ACTOR VALUES(20,'1990-12-31 00:00:00.000000','Lesotho','Angela Deleon')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 21
+COMMIT
+INSERT INTO GENRE VALUES(21,'Action')
+INSERT INTO GENRE VALUES(22,'Romance')
+INSERT INTO GENRE VALUES(23,'Science')
+INSERT INTO GENRE VALUES(24,'Fantasy')
+INSERT INTO GENRE VALUES(25,'Children')
+INSERT INTO GENRE VALUES(26,'Horror')
+INSERT INTO GENRE VALUES(27,'Western')
+INSERT INTO GENRE VALUES(28,'Biography')
+INSERT INTO GENRE VALUES(29,'Thriller')
+INSERT INTO GENRE VALUES(30,'Adventure')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 31
+COMMIT
+INSERT INTO MOVIE VALUES(31,'James Cameron',162,'http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg','Avatar',2009)
+INSERT INTO MOVIE VALUES(32,'Francis Lawrence',101,'http://ia.media-imdb.com/images/M/MV5BMTU4NzMyNDk1OV5BMl5BanBnXkFtZTcwOTEwMzU1MQ@@._V1_SX300.jpg','I am a legend',2007)
+INSERT INTO MOVIE VALUES(33,'Zack Snyder',117,'http://ia.media-imdb.com/images/M/MV5BMjAzNTkzNjcxNl5BMl5BanBnXkFtZTYwNDA4NjE3._V1_SX300.jpg','300',2006)
+INSERT INTO MOVIE VALUES(34,'Joss Whedon',143,'http://ia.media-imdb.com/images/M/MV5BMTk2NTI1MTU4N15BMl5BanBnXkFtZTcwODg0OTY0Nw@@._V1_SX300.jpg','The Avengers',2012)
+INSERT INTO MOVIE VALUES(35,'Martin Scorsese',180,'https://ia.media-imdb.com/images/M/MV5BMjIxMjgxNTk0MF5BMl5BanBnXkFtZTgwNjIyOTg2MDE@._V1_SX300.jpg','The Wolf of Wall Street',2013)
+INSERT INTO MOVIE VALUES(36,'Christopher Nolan',169,'http://ia.media-imdb.com/images/M/MV5BMTY2MjMwNDE4OV5BMl5BanBnXkFtZTgwNjI1NjU0OTE@._V1_SX300.jpg','Interstellar',2014)
+INSERT INTO MOVIE VALUES(37,'JBruno Heller',42,'http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg','Gotham',2014)
+INSERT INTO MOVIE VALUES(38,'Scott Derrickson',116,'http://ia.media-imdb.com/images/M/MV5BNjgwNzAzNjk1Nl5BMl5BanBnXkFtZTgwMzQ2NjI1OTE@._V1_SX300.jpg','Doctor Strange',2016)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 39
+COMMIT
+alter table actor_movies drop constraint FK72iqo9w8c9h10al27iqms44gy
+alter table actor_movies drop constraint FKobjwvns890gus9qi2e6a7gmxp
+alter table genre_movies drop constraint FKtgatsvi7lb98phh9ft1gogkep
+alter table genre_movies drop constraint FKe8j9am8l355522fj88clwhbt8
+drop table actor if exists
+drop table actor_movies if exists
+drop table genre if exists
+drop table genre_movies if exists
+drop table movie if exists
+drop sequence hibernate_sequence if exists
+DISCONNECT
+/*C74*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C75*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C76*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C77*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C78*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C79*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C80*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C81*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C82*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C83*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C84*/SET SCHEMA PUBLIC
+drop table actor if exists
+drop table actor_movies if exists
+drop table genre if exists
+drop table genre_movies if exists
+drop table movie if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table actor (id bigint not null, birth_date timestamp, birth_place varchar(255), name varchar(255), primary key (id))
+create table actor_movies (actors_id bigint not null, movies_id bigint not null)
+create table genre (id bigint not null, name varchar(255), primary key (id))
+create table genre_movies (genres_id bigint not null, movies_id bigint not null)
+create table movie (id bigint not null, director varchar(255), duration integer not null, image_url varchar(255), title varchar(100) not null, year integer not null, primary key (id))
+alter table actor_movies add constraint FK72iqo9w8c9h10al27iqms44gy foreign key (movies_id) references movie
+alter table actor_movies add constraint FKobjwvns890gus9qi2e6a7gmxp foreign key (actors_id) references actor
+alter table genre_movies add constraint FKtgatsvi7lb98phh9ft1gogkep foreign key (movies_id) references movie
+alter table genre_movies add constraint FKe8j9am8l355522fj88clwhbt8 foreign key (genres_id) references genre
+INSERT INTO ACTOR VALUES(1,'1979-12-31 00:00:00.000000','Macao','Rama Dillard')
+INSERT INTO ACTOR VALUES(2,'1995-01-02 00:00:00.000000','Tonga','Vincent Obrien')
+INSERT INTO ACTOR VALUES(3,'1996-12-30 00:00:00.000000','Suriname','Bert Rosario')
+INSERT INTO ACTOR VALUES(4,'1985-12-30 00:00:00.000000','Marshall Islands','Shay Wolfe')
+INSERT INTO ACTOR VALUES(5,'1994-01-03 00:00:00.000000','United States','Maite Hood')
+INSERT INTO ACTOR VALUES(6,'1995-01-02 00:00:00.000000','Ethiopia','Leonard Tyler')
+INSERT INTO ACTOR VALUES(7,'1980-12-29 00:00:00.000000','New Zealand','Basil Chan')
+INSERT INTO ACTOR VALUES(8,'1988-01-04 00:00:00.000000','Lesotho','Liberty Hardy')
+INSERT INTO ACTOR VALUES(9,'1996-01-01 00:00:00.000000','United States','Helen Carlson')
+INSERT INTO ACTOR VALUES(10,'2001-01-01 00:00:00.000000','Svalbard and Jan Mayen Islands','Bianca Chan')
+INSERT INTO ACTOR VALUES(11,'1990-01-01 00:00:00.000000','Belarus','Micah Padilla')
+INSERT INTO ACTOR VALUES(12,'1997-12-29 00:00:00.000000','Tanzania','Rajah Randall')
+INSERT INTO ACTOR VALUES(13,'1983-01-03 00:00:00.000000','Pitcairn Islands','Iola Hammond')
+INSERT INTO ACTOR VALUES(14,'1979-01-01 00:00:00.000000','Libya','Trevor Chavez')
+INSERT INTO ACTOR VALUES(15,'1984-01-02 00:00:00.000000','Germany','Tyrone Carter')
+INSERT INTO ACTOR VALUES(16,'2000-01-03 00:00:00.000000','Algeria','Kiara Cain')
+INSERT INTO ACTOR VALUES(17,'1977-01-03 00:00:00.000000','Sao Tome and Principe','Basil White')
+INSERT INTO ACTOR VALUES(18,'1984-12-31 00:00:00.000000','Korea, North','Olga Weber')
+INSERT INTO ACTOR VALUES(19,'1975-12-29 00:00:00.000000','Egypt','Jayme Rivas')
+INSERT INTO ACTOR VALUES(20,'1990-12-31 00:00:00.000000','Lesotho','Angela Deleon')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 21
+COMMIT
+INSERT INTO GENRE VALUES(21,'Action')
+INSERT INTO GENRE VALUES(22,'Romance')
+INSERT INTO GENRE VALUES(23,'Science')
+INSERT INTO GENRE VALUES(24,'Fantasy')
+INSERT INTO GENRE VALUES(25,'Children')
+INSERT INTO GENRE VALUES(26,'Horror')
+INSERT INTO GENRE VALUES(27,'Western')
+INSERT INTO GENRE VALUES(28,'Biography')
+INSERT INTO GENRE VALUES(29,'Thriller')
+INSERT INTO GENRE VALUES(30,'Adventure')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 31
+COMMIT
+INSERT INTO MOVIE VALUES(31,'James Cameron',162,'http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg','Avatar',2009)
+INSERT INTO MOVIE VALUES(32,'Francis Lawrence',101,'http://ia.media-imdb.com/images/M/MV5BMTU4NzMyNDk1OV5BMl5BanBnXkFtZTcwOTEwMzU1MQ@@._V1_SX300.jpg','I am a legend',2007)
+INSERT INTO MOVIE VALUES(33,'Zack Snyder',117,'http://ia.media-imdb.com/images/M/MV5BMjAzNTkzNjcxNl5BMl5BanBnXkFtZTYwNDA4NjE3._V1_SX300.jpg','300',2006)
+INSERT INTO MOVIE VALUES(34,'Joss Whedon',143,'http://ia.media-imdb.com/images/M/MV5BMTk2NTI1MTU4N15BMl5BanBnXkFtZTcwODg0OTY0Nw@@._V1_SX300.jpg','The Avengers',2012)
+INSERT INTO MOVIE VALUES(35,'Martin Scorsese',180,'https://ia.media-imdb.com/images/M/MV5BMjIxMjgxNTk0MF5BMl5BanBnXkFtZTgwNjIyOTg2MDE@._V1_SX300.jpg','The Wolf of Wall Street',2013)
+INSERT INTO MOVIE VALUES(36,'Christopher Nolan',169,'http://ia.media-imdb.com/images/M/MV5BMTY2MjMwNDE4OV5BMl5BanBnXkFtZTgwNjI1NjU0OTE@._V1_SX300.jpg','Interstellar',2014)
+INSERT INTO MOVIE VALUES(37,'JBruno Heller',42,'http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg','Gotham',2014)
+INSERT INTO MOVIE VALUES(38,'Scott Derrickson',116,'http://ia.media-imdb.com/images/M/MV5BNjgwNzAzNjk1Nl5BMl5BanBnXkFtZTgwMzQ2NjI1OTE@._V1_SX300.jpg','Doctor Strange',2016)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 39
+COMMIT
+alter table actor_movies drop constraint FK72iqo9w8c9h10al27iqms44gy
+alter table actor_movies drop constraint FKobjwvns890gus9qi2e6a7gmxp
+alter table genre_movies drop constraint FKtgatsvi7lb98phh9ft1gogkep
+alter table genre_movies drop constraint FKe8j9am8l355522fj88clwhbt8
+drop table actor if exists
+drop table actor_movies if exists
+drop table genre if exists
+drop table genre_movies if exists
+drop table movie if exists
+drop sequence hibernate_sequence if exists
+DISCONNECT
+/*C85*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C86*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C87*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C88*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C89*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C90*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C91*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C92*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C93*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C94*/SET SCHEMA PUBLIC
+drop table actor if exists
+drop table actor_movies if exists
+drop table genre if exists
+drop table genre_movies if exists
+drop table movie if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table actor (id bigint not null, birth_date timestamp, birth_place varchar(255), name varchar(255), primary key (id))
+create table actor_movies (actors_id bigint not null, movies_id bigint not null)
+create table genre (id bigint not null, name varchar(255), primary key (id))
+create table genre_movies (genres_id bigint not null, movies_id bigint not null)
+create table movie (id bigint not null, director varchar(255), duration integer not null, image_url varchar(255), title varchar(100) not null, year integer not null, primary key (id))
+alter table actor_movies add constraint FK72iqo9w8c9h10al27iqms44gy foreign key (movies_id) references movie
+alter table actor_movies add constraint FKobjwvns890gus9qi2e6a7gmxp foreign key (actors_id) references actor
+alter table genre_movies add constraint FKtgatsvi7lb98phh9ft1gogkep foreign key (movies_id) references movie
+alter table genre_movies add constraint FKe8j9am8l355522fj88clwhbt8 foreign key (genres_id) references genre
+INSERT INTO ACTOR VALUES(1,'1979-12-31 00:00:00.000000','Macao','Rama Dillard')
+INSERT INTO ACTOR VALUES(2,'1995-01-02 00:00:00.000000','Tonga','Vincent Obrien')
+INSERT INTO ACTOR VALUES(3,'1996-12-30 00:00:00.000000','Suriname','Bert Rosario')
+INSERT INTO ACTOR VALUES(4,'1985-12-30 00:00:00.000000','Marshall Islands','Shay Wolfe')
+INSERT INTO ACTOR VALUES(5,'1994-01-03 00:00:00.000000','United States','Maite Hood')
+INSERT INTO ACTOR VALUES(6,'1995-01-02 00:00:00.000000','Ethiopia','Leonard Tyler')
+INSERT INTO ACTOR VALUES(7,'1980-12-29 00:00:00.000000','New Zealand','Basil Chan')
+INSERT INTO ACTOR VALUES(8,'1988-01-04 00:00:00.000000','Lesotho','Liberty Hardy')
+INSERT INTO ACTOR VALUES(9,'1996-01-01 00:00:00.000000','United States','Helen Carlson')
+INSERT INTO ACTOR VALUES(10,'2001-01-01 00:00:00.000000','Svalbard and Jan Mayen Islands','Bianca Chan')
+INSERT INTO ACTOR VALUES(11,'1990-01-01 00:00:00.000000','Belarus','Micah Padilla')
+INSERT INTO ACTOR VALUES(12,'1997-12-29 00:00:00.000000','Tanzania','Rajah Randall')
+INSERT INTO ACTOR VALUES(13,'1983-01-03 00:00:00.000000','Pitcairn Islands','Iola Hammond')
+INSERT INTO ACTOR VALUES(14,'1979-01-01 00:00:00.000000','Libya','Trevor Chavez')
+INSERT INTO ACTOR VALUES(15,'1984-01-02 00:00:00.000000','Germany','Tyrone Carter')
+INSERT INTO ACTOR VALUES(16,'2000-01-03 00:00:00.000000','Algeria','Kiara Cain')
+INSERT INTO ACTOR VALUES(17,'1977-01-03 00:00:00.000000','Sao Tome and Principe','Basil White')
+INSERT INTO ACTOR VALUES(18,'1984-12-31 00:00:00.000000','Korea, North','Olga Weber')
+INSERT INTO ACTOR VALUES(19,'1975-12-29 00:00:00.000000','Egypt','Jayme Rivas')
+INSERT INTO ACTOR VALUES(20,'1990-12-31 00:00:00.000000','Lesotho','Angela Deleon')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 21
+COMMIT
+INSERT INTO GENRE VALUES(21,'Action')
+INSERT INTO GENRE VALUES(22,'Romance')
+INSERT INTO GENRE VALUES(23,'Science')
+INSERT INTO GENRE VALUES(24,'Fantasy')
+INSERT INTO GENRE VALUES(25,'Children')
+INSERT INTO GENRE VALUES(26,'Horror')
+INSERT INTO GENRE VALUES(27,'Western')
+INSERT INTO GENRE VALUES(28,'Biography')
+INSERT INTO GENRE VALUES(29,'Thriller')
+INSERT INTO GENRE VALUES(30,'Adventure')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 31
+COMMIT
+INSERT INTO MOVIE VALUES(31,'James Cameron',162,'http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg','Avatar',2009)
+INSERT INTO MOVIE VALUES(32,'Francis Lawrence',101,'http://ia.media-imdb.com/images/M/MV5BMTU4NzMyNDk1OV5BMl5BanBnXkFtZTcwOTEwMzU1MQ@@._V1_SX300.jpg','I am a legend',2007)
+INSERT INTO MOVIE VALUES(33,'Zack Snyder',117,'http://ia.media-imdb.com/images/M/MV5BMjAzNTkzNjcxNl5BMl5BanBnXkFtZTYwNDA4NjE3._V1_SX300.jpg','300',2006)
+INSERT INTO MOVIE VALUES(34,'Joss Whedon',143,'http://ia.media-imdb.com/images/M/MV5BMTk2NTI1MTU4N15BMl5BanBnXkFtZTcwODg0OTY0Nw@@._V1_SX300.jpg','The Avengers',2012)
+INSERT INTO MOVIE VALUES(35,'Martin Scorsese',180,'https://ia.media-imdb.com/images/M/MV5BMjIxMjgxNTk0MF5BMl5BanBnXkFtZTgwNjIyOTg2MDE@._V1_SX300.jpg','The Wolf of Wall Street',2013)
+INSERT INTO MOVIE VALUES(36,'Christopher Nolan',169,'http://ia.media-imdb.com/images/M/MV5BMTY2MjMwNDE4OV5BMl5BanBnXkFtZTgwNjI1NjU0OTE@._V1_SX300.jpg','Interstellar',2014)
+INSERT INTO MOVIE VALUES(37,'JBruno Heller',42,'http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg','Gotham',2014)
+INSERT INTO MOVIE VALUES(38,'Scott Derrickson',116,'http://ia.media-imdb.com/images/M/MV5BNjgwNzAzNjk1Nl5BMl5BanBnXkFtZTgwMzQ2NjI1OTE@._V1_SX300.jpg','Doctor Strange',2016)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 39
+COMMIT
+alter table actor_movies drop constraint FK72iqo9w8c9h10al27iqms44gy
+alter table actor_movies drop constraint FKobjwvns890gus9qi2e6a7gmxp
+alter table genre_movies drop constraint FKtgatsvi7lb98phh9ft1gogkep
+alter table genre_movies drop constraint FKe8j9am8l355522fj88clwhbt8
+drop table actor if exists
+drop table actor_movies if exists
+drop table genre if exists
+drop table genre_movies if exists
+drop table movie if exists
+drop sequence hibernate_sequence if exists
+DISCONNECT
+/*C95*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C96*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C97*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C98*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C99*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C100*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C101*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C102*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C103*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C104*/SET SCHEMA PUBLIC
+drop table actor if exists
+drop table actor_movies if exists
+drop table genre if exists
+drop table genre_movies if exists
+drop table movie if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table actor (id bigint not null, birth_date timestamp, birth_place varchar(255), name varchar(255), primary key (id))
+create table actor_movies (actors_id bigint not null, movies_id bigint not null)
+create table genre (id bigint not null, name varchar(255), primary key (id))
+create table genre_movies (genres_id bigint not null, movies_id bigint not null)
+create table movie (id bigint not null, director varchar(255), duration integer not null, image_url varchar(255), title varchar(100) not null, year integer not null, primary key (id))
+alter table actor_movies add constraint FK72iqo9w8c9h10al27iqms44gy foreign key (movies_id) references movie
+alter table actor_movies add constraint FKobjwvns890gus9qi2e6a7gmxp foreign key (actors_id) references actor
+alter table genre_movies add constraint FKtgatsvi7lb98phh9ft1gogkep foreign key (movies_id) references movie
+alter table genre_movies add constraint FKe8j9am8l355522fj88clwhbt8 foreign key (genres_id) references genre
+INSERT INTO ACTOR VALUES(1,'1979-12-31 00:00:00.000000','Macao','Rama Dillard')
+INSERT INTO ACTOR VALUES(2,'1995-01-02 00:00:00.000000','Tonga','Vincent Obrien')
+INSERT INTO ACTOR VALUES(3,'1996-12-30 00:00:00.000000','Suriname','Bert Rosario')
+INSERT INTO ACTOR VALUES(4,'1985-12-30 00:00:00.000000','Marshall Islands','Shay Wolfe')
+INSERT INTO ACTOR VALUES(5,'1994-01-03 00:00:00.000000','United States','Maite Hood')
+INSERT INTO ACTOR VALUES(6,'1995-01-02 00:00:00.000000','Ethiopia','Leonard Tyler')
+INSERT INTO ACTOR VALUES(7,'1980-12-29 00:00:00.000000','New Zealand','Basil Chan')
+INSERT INTO ACTOR VALUES(8,'1988-01-04 00:00:00.000000','Lesotho','Liberty Hardy')
+INSERT INTO ACTOR VALUES(9,'1996-01-01 00:00:00.000000','United States','Helen Carlson')
+INSERT INTO ACTOR VALUES(10,'2001-01-01 00:00:00.000000','Svalbard and Jan Mayen Islands','Bianca Chan')
+INSERT INTO ACTOR VALUES(11,'1990-01-01 00:00:00.000000','Belarus','Micah Padilla')
+INSERT INTO ACTOR VALUES(12,'1997-12-29 00:00:00.000000','Tanzania','Rajah Randall')
+INSERT INTO ACTOR VALUES(13,'1983-01-03 00:00:00.000000','Pitcairn Islands','Iola Hammond')
+INSERT INTO ACTOR VALUES(14,'1979-01-01 00:00:00.000000','Libya','Trevor Chavez')
+INSERT INTO ACTOR VALUES(15,'1984-01-02 00:00:00.000000','Germany','Tyrone Carter')
+INSERT INTO ACTOR VALUES(16,'2000-01-03 00:00:00.000000','Algeria','Kiara Cain')
+INSERT INTO ACTOR VALUES(17,'1977-01-03 00:00:00.000000','Sao Tome and Principe','Basil White')
+INSERT INTO ACTOR VALUES(18,'1984-12-31 00:00:00.000000','Korea, North','Olga Weber')
+INSERT INTO ACTOR VALUES(19,'1975-12-29 00:00:00.000000','Egypt','Jayme Rivas')
+INSERT INTO ACTOR VALUES(20,'1990-12-31 00:00:00.000000','Lesotho','Angela Deleon')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 21
+COMMIT
+INSERT INTO GENRE VALUES(21,'Action')
+INSERT INTO GENRE VALUES(22,'Romance')
+INSERT INTO GENRE VALUES(23,'Science')
+INSERT INTO GENRE VALUES(24,'Fantasy')
+INSERT INTO GENRE VALUES(25,'Children')
+INSERT INTO GENRE VALUES(26,'Horror')
+INSERT INTO GENRE VALUES(27,'Western')
+INSERT INTO GENRE VALUES(28,'Biography')
+INSERT INTO GENRE VALUES(29,'Thriller')
+INSERT INTO GENRE VALUES(30,'Adventure')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 31
+COMMIT
+INSERT INTO MOVIE VALUES(31,'James Cameron',162,'http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg','Avatar',2009)
+INSERT INTO MOVIE VALUES(32,'Francis Lawrence',101,'http://ia.media-imdb.com/images/M/MV5BMTU4NzMyNDk1OV5BMl5BanBnXkFtZTcwOTEwMzU1MQ@@._V1_SX300.jpg','I am a legend',2007)
+INSERT INTO MOVIE VALUES(33,'Zack Snyder',117,'http://ia.media-imdb.com/images/M/MV5BMjAzNTkzNjcxNl5BMl5BanBnXkFtZTYwNDA4NjE3._V1_SX300.jpg','300',2006)
+INSERT INTO MOVIE VALUES(34,'Joss Whedon',143,'http://ia.media-imdb.com/images/M/MV5BMTk2NTI1MTU4N15BMl5BanBnXkFtZTcwODg0OTY0Nw@@._V1_SX300.jpg','The Avengers',2012)
+INSERT INTO MOVIE VALUES(35,'Martin Scorsese',180,'https://ia.media-imdb.com/images/M/MV5BMjIxMjgxNTk0MF5BMl5BanBnXkFtZTgwNjIyOTg2MDE@._V1_SX300.jpg','The Wolf of Wall Street',2013)
+INSERT INTO MOVIE VALUES(36,'Christopher Nolan',169,'http://ia.media-imdb.com/images/M/MV5BMTY2MjMwNDE4OV5BMl5BanBnXkFtZTgwNjI1NjU0OTE@._V1_SX300.jpg','Interstellar',2014)
+INSERT INTO MOVIE VALUES(37,'JBruno Heller',42,'http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg','Gotham',2014)
+INSERT INTO MOVIE VALUES(38,'Scott Derrickson',116,'http://ia.media-imdb.com/images/M/MV5BNjgwNzAzNjk1Nl5BMl5BanBnXkFtZTgwMzQ2NjI1OTE@._V1_SX300.jpg','Doctor Strange',2016)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 39
+COMMIT
+alter table actor_movies drop constraint FK72iqo9w8c9h10al27iqms44gy
+alter table actor_movies drop constraint FKobjwvns890gus9qi2e6a7gmxp
+alter table genre_movies drop constraint FKtgatsvi7lb98phh9ft1gogkep
+alter table genre_movies drop constraint FKe8j9am8l355522fj88clwhbt8
+drop table actor if exists
+drop table actor_movies if exists
+drop table genre if exists
+drop table genre_movies if exists
+drop table movie if exists
+drop sequence hibernate_sequence if exists
+DISCONNECT
+/*C105*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C106*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C107*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C108*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C109*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C110*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C111*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C112*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C113*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C114*/SET SCHEMA PUBLIC
+drop table actor if exists
+drop table actor_movies if exists
+drop table genre if exists
+drop table genre_movies if exists
+drop table movie if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table actor (id bigint not null, birth_date timestamp, birth_place varchar(255), name varchar(255), primary key (id))
+create table actor_movies (actors_id bigint not null, movies_id bigint not null)
+create table genre (id bigint not null, name varchar(255), primary key (id))
+create table genre_movies (genres_id bigint not null, movies_id bigint not null)
+create table movie (id bigint not null, director varchar(255), duration integer not null, image_url varchar(255), title varchar(100) not null, year integer not null, primary key (id))
+alter table actor_movies add constraint FK72iqo9w8c9h10al27iqms44gy foreign key (movies_id) references movie
+alter table actor_movies add constraint FKobjwvns890gus9qi2e6a7gmxp foreign key (actors_id) references actor
+alter table genre_movies add constraint FKtgatsvi7lb98phh9ft1gogkep foreign key (movies_id) references movie
+alter table genre_movies add constraint FKe8j9am8l355522fj88clwhbt8 foreign key (genres_id) references genre
+INSERT INTO ACTOR VALUES(1,'1979-12-31 00:00:00.000000','Macao','Rama Dillard')
+INSERT INTO ACTOR VALUES(2,'1995-01-02 00:00:00.000000','Tonga','Vincent Obrien')
+INSERT INTO ACTOR VALUES(3,'1996-12-30 00:00:00.000000','Suriname','Bert Rosario')
+INSERT INTO ACTOR VALUES(4,'1985-12-30 00:00:00.000000','Marshall Islands','Shay Wolfe')
+INSERT INTO ACTOR VALUES(5,'1994-01-03 00:00:00.000000','United States','Maite Hood')
+INSERT INTO ACTOR VALUES(6,'1995-01-02 00:00:00.000000','Ethiopia','Leonard Tyler')
+INSERT INTO ACTOR VALUES(7,'1980-12-29 00:00:00.000000','New Zealand','Basil Chan')
+INSERT INTO ACTOR VALUES(8,'1988-01-04 00:00:00.000000','Lesotho','Liberty Hardy')
+INSERT INTO ACTOR VALUES(9,'1996-01-01 00:00:00.000000','United States','Helen Carlson')
+INSERT INTO ACTOR VALUES(10,'2001-01-01 00:00:00.000000','Svalbard and Jan Mayen Islands','Bianca Chan')
+INSERT INTO ACTOR VALUES(11,'1990-01-01 00:00:00.000000','Belarus','Micah Padilla')
+INSERT INTO ACTOR VALUES(12,'1997-12-29 00:00:00.000000','Tanzania','Rajah Randall')
+INSERT INTO ACTOR VALUES(13,'1983-01-03 00:00:00.000000','Pitcairn Islands','Iola Hammond')
+INSERT INTO ACTOR VALUES(14,'1979-01-01 00:00:00.000000','Libya','Trevor Chavez')
+INSERT INTO ACTOR VALUES(15,'1984-01-02 00:00:00.000000','Germany','Tyrone Carter')
+INSERT INTO ACTOR VALUES(16,'2000-01-03 00:00:00.000000','Algeria','Kiara Cain')
+INSERT INTO ACTOR VALUES(17,'1977-01-03 00:00:00.000000','Sao Tome and Principe','Basil White')
+INSERT INTO ACTOR VALUES(18,'1984-12-31 00:00:00.000000','Korea, North','Olga Weber')
+INSERT INTO ACTOR VALUES(19,'1975-12-29 00:00:00.000000','Egypt','Jayme Rivas')
+INSERT INTO ACTOR VALUES(20,'1990-12-31 00:00:00.000000','Lesotho','Angela Deleon')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 21
+COMMIT
+INSERT INTO GENRE VALUES(21,'Action')
+INSERT INTO GENRE VALUES(22,'Romance')
+INSERT INTO GENRE VALUES(23,'Science')
+INSERT INTO GENRE VALUES(24,'Fantasy')
+INSERT INTO GENRE VALUES(25,'Children')
+INSERT INTO GENRE VALUES(26,'Horror')
+INSERT INTO GENRE VALUES(27,'Western')
+INSERT INTO GENRE VALUES(28,'Biography')
+INSERT INTO GENRE VALUES(29,'Thriller')
+INSERT INTO GENRE VALUES(30,'Adventure')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 31
+COMMIT
+INSERT INTO MOVIE VALUES(31,'James Cameron',162,'http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg','Avatar',2009)
+INSERT INTO MOVIE VALUES(32,'Francis Lawrence',101,'http://ia.media-imdb.com/images/M/MV5BMTU4NzMyNDk1OV5BMl5BanBnXkFtZTcwOTEwMzU1MQ@@._V1_SX300.jpg','I am a legend',2007)
+INSERT INTO MOVIE VALUES(33,'Zack Snyder',117,'http://ia.media-imdb.com/images/M/MV5BMjAzNTkzNjcxNl5BMl5BanBnXkFtZTYwNDA4NjE3._V1_SX300.jpg','300',2006)
+INSERT INTO MOVIE VALUES(34,'Joss Whedon',143,'http://ia.media-imdb.com/images/M/MV5BMTk2NTI1MTU4N15BMl5BanBnXkFtZTcwODg0OTY0Nw@@._V1_SX300.jpg','The Avengers',2012)
+INSERT INTO MOVIE VALUES(35,'Martin Scorsese',180,'https://ia.media-imdb.com/images/M/MV5BMjIxMjgxNTk0MF5BMl5BanBnXkFtZTgwNjIyOTg2MDE@._V1_SX300.jpg','The Wolf of Wall Street',2013)
+INSERT INTO MOVIE VALUES(36,'Christopher Nolan',169,'http://ia.media-imdb.com/images/M/MV5BMTY2MjMwNDE4OV5BMl5BanBnXkFtZTgwNjI1NjU0OTE@._V1_SX300.jpg','Interstellar',2014)
+INSERT INTO MOVIE VALUES(37,'JBruno Heller',42,'http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg','Gotham',2014)
+INSERT INTO MOVIE VALUES(38,'Scott Derrickson',116,'http://ia.media-imdb.com/images/M/MV5BNjgwNzAzNjk1Nl5BMl5BanBnXkFtZTgwMzQ2NjI1OTE@._V1_SX300.jpg','Doctor Strange',2016)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 39
+COMMIT
